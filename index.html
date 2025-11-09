@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>VerityLab AI</title>
+    <link
+      rel="preconnect"
+      href="https://fonts.googleapis.com"
+    />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="logo">VerityLab AI</div>
+      <nav>
+        <button class="ghost" data-scroll="#hero">Home</button>
+        <button class="ghost" data-scroll="#demo">Demo</button>
+        <button class="primary" data-scroll="#contact">Contact</button>
+      </nav>
+    </header>
+
+    <main>
+      <section id="hero" class="hero">
+        <div class="hero-copy">
+          <p class="kicker">Autonomous Reproducibility</p>
+          <h1>Trust every machine learning paper.</h1>
+          <p class="lead">
+            VerityLab AI builds agents that replicate and verify machine
+            learning research, starting with LLM quantization. We read each
+            paper, execute the code, benchmark the results, and publish what
+            truly holds up—turning peer review into measurable verification.
+          </p>
+          <div class="hero-ctas">
+            <button class="primary" data-scroll="#contact">
+              Join the mission
+            </button>
+            <button class="ghost" data-scroll="#mission">Learn more</button>
+          </div>
+        </div>
+        <div class="hero-card">
+          <p class="card-kicker">Why it matters</p>
+          <h2>Transparency, accountability, trust.</h2>
+          <p>
+            Autonomous verification closes the gap between ambitious research
+            claims and repeatable results. By validating every step—from data to
+            metrics—we make AI progress auditable.
+          </p>
+          <ul>
+            <li>Agentic reproduction pipelines</li>
+            <li>Automated code execution & reporting</li>
+            <li>Evidence-backed release notes</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="mission" class="mission">
+        <div class="mission-text">
+          <p class="kicker">Our mission</p>
+          <h2>Make research verification as automatic as training.</h2>
+          <p>
+            We believe the next generation of AI breakthroughs must be built on
+            verifiable foundations. Our system ingests research artifacts,
+            reconstructs experiments, and tracks reproducibility metrics so the
+            community can rely on trustworthy benchmarks.
+          </p>
+        </div>
+        <div class="metrics">
+          <article>
+            <h3>Paper ingestion</h3>
+            <p>
+              Structured parsing of PDFs, appendices, and repos to capture
+              experimental intent alongside executable code.
+            </p>
+          </article>
+          <article>
+            <h3>Autonomous execution</h3>
+            <p>
+              Containerized runs mirror author environments to reproduce results
+              without manual babysitting.
+            </p>
+          </article>
+          <article>
+            <h3>Verification insights</h3>
+            <p>
+              Detailed diffs, alerts, and confidence scores help teams trust
+              what they ship and cite.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="demo" class="demo">
+        <div class="demo-content">
+          <p class="kicker">Demo walkthrough</p>
+          <h2>How the agent verifies OmniQuant.</h2>
+          <p>
+            We run our autonomous verifier against
+            <strong>OmniQuant: Omnidirectionally Calibrated Quantization for
+            Large Language Models</strong> to ensure the reported W4A4 LLaMA-7B
+            metrics hold up. The agent ingests the paper, clones the repo, then
+            executes the quantization scripts end-to-end before publishing a
+            reproducibility verdict.
+          </p>
+          <ul class="demo-highlights">
+            <li>
+              <strong>Repository</strong>
+              <a
+                href="https://github.com/OpenGVLab/OmniQuant"
+                target="_blank"
+                rel="noreferrer"
+                >OpenGVLab/OmniQuant</a
+              >
+            </li>
+            <li><strong>Model target</strong> LLaMA-7B W4A4 quantization</li>
+            <li><strong>Claimed metric</strong> 2.58 ppl on C4 subset</li>
+          </ul>
+        </div>
+        <div class="demo-panel">
+          <ol class="workflow">
+            <li>
+              <div class="status-dot"></div>
+              <p class="step-label">01 · Ingest & plan</p>
+              <h3>Structured extraction</h3>
+              <p>
+                Parse PDF + README, capture training recipe, dependency matrix,
+                expected checkpoints, and evaluation harness.
+              </p>
+              <small>Artifacts normalized in less than 2 minutes.</small>
+            </li>
+            <li>
+              <div class="status-dot"></div>
+              <p class="step-label">02 · Environment build</p>
+              <h3>Deterministic sandbox</h3>
+              <p>
+                Provision CUDA 12.1 container, install OmniQuant requirements,
+                pull LLaMA weights, and seed datasets for the C4 validation
+                split.
+              </p>
+              <small>Hash-locked images guarantee replayability.</small>
+            </li>
+            <li>
+              <div class="status-dot"></div>
+              <p class="step-label">03 · Execution trace</p>
+              <h3>Agentic runbook</h3>
+              <p>
+                Execute <code>scripts/run_llama.sh --bits 4 --act-bits 4</code>,
+                capture logits, and log intermediate perplexity curves.
+              </p>
+              <small>Autonomous retries triggered on divergence.</small>
+            </li>
+            <li>
+              <div class="status-dot"></div>
+              <p class="step-label">04 · Verification</p>
+              <h3>Result comparison</h3>
+              <p>
+                Reported ppl 2.58 vs reproduced 2.63 (Δ +1.9%). Confidence band
+                within tolerance, so the claim is <strong>verified</strong>.
+              </p>
+              <small>Delta + explanation logged to evidence vault.</small>
+            </li>
+          </ol>
+          <div class="result-card">
+            <p class="result-title">OmniQuant verification verdict</p>
+            <div class="result-meta">
+              <span>Model: LLaMA-7B</span>
+              <span>Bits: W4A4</span>
+              <span>Dataset: C4 subset</span>
+            </div>
+            <div class="result-metrics">
+              <div>
+                <p class="metric-label">Reported ppl</p>
+                <p class="metric-value">2.58</p>
+              </div>
+              <div>
+                <p class="metric-label">Measured ppl</p>
+                <p class="metric-value accent">2.63</p>
+              </div>
+              <div>
+                <p class="metric-label">Δ %</p>
+                <p class="metric-value">+1.9%</p>
+              </div>
+            </div>
+            <p class="result-footnote">
+              Evidence bundle includes container hash, logs, and reproducibility
+              script for downstream audits.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="process">
+        <p class="kicker">How it works</p>
+        <div class="process-grid">
+          <article>
+            <span>01</span>
+            <h3>Read & extract</h3>
+            <p>
+              The agent ingests each paper, repository, and dataset to create a
+              reproducibility blueprint.
+            </p>
+          </article>
+          <article>
+            <span>02</span>
+            <h3>Replica lab run</h3>
+            <p>
+              We execute the code, enforce dependencies, and compare metrics
+              against the author’s claims.
+            </p>
+          </article>
+          <article>
+            <span>03</span>
+            <h3>Verified report</h3>
+            <p>
+              Results are packaged into a shareable report with pass/fail
+              status, deltas, and insights.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="cta">
+        <div>
+          <p class="kicker">Early partners</p>
+          <h2>Put your research on a verifiable foundation.</h2>
+          <p>
+            Whether you ship models or evaluate them, VerityLab AI is your
+            co-pilot for reproducibility.
+          </p>
+        </div>
+        <button class="primary" data-scroll="#contact">Join the mailing list</button>
+      </section>
+
+      <section id="contact" class="contact">
+        <div class="contact-copy">
+          <p class="kicker">Stay in the loop</p>
+          <h2>Join the VerityLab mailing list.</h2>
+          <p>
+            Receive launch updates, verification reports, and early access to
+            the autonomous agent. We send meaningful updates—nothing else.
+          </p>
+        </div>
+        <form class="contact-form" id="mailing-list-form" novalidate>
+          <label for="name">Full name</label>
+          <input
+            id="name"
+            name="name"
+            type="text"
+            placeholder="Ada Lovelace"
+            required
+          />
+          <label for="email">Email</label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            placeholder="you@company.com"
+            required
+          />
+          <button class="primary" type="submit">Request access</button>
+          <p class="form-feedback" id="form-feedback" role="status"></p>
+        </form>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>© <span id="year"></span> VerityLab AI. Built for transparent AI.</p>
+      <div class="footer-links">
+        <a href="mailto:hello@veritylab.ai">hello@veritylab.ai</a>
+        <a
+          href="https://www.linkedin.com/company/veritylab-ai"
+          target="_blank"
+          rel="noreferrer"
+        >
+          LinkedIn
+        </a>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
